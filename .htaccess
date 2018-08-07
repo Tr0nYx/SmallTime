@@ -6,3 +6,4 @@
  </Files>
 Options -Indexes
 order deny,allow
+ModPageSpeed Off

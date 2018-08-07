@@ -1,14 +1,14 @@
 <?php
 /********************************************************************************
-* Small Time
-/*******************************************************************************
-* Version 0.9.020
-* Author:  IT-Master GmbH
-* www.it-master.ch / info@it-master.ch
-* Copyright (c), IT-Master GmbH, All rights reserved
-*******************************************************************************/
+ * Small Time
+ * /*******************************************************************************
+ * Version 0.9.020
+ * Author:  IT-Master GmbH
+ * www.it-master.ch / info@it-master.ch
+ * Copyright (c), IT-Master GmbH, All rights reserved
+ *******************************************************************************/
 echo "<div id='meineid'>";
-echo "<form action='?action=user_update&admin_id=". $_id."' method='post' target='_self'>";
+echo "<form action='?action=user_update&admin_id=".$_id."' method='post' target='_self'>";
 echo "<table width=100% border=0 cellpadding=3 cellspacing=1>";
 echo "<tr>";
 echo "<td align=left COLSPAN=3 class=td_background_top width=60>Userdaten Editieren</td>";
@@ -20,7 +20,8 @@ echo "<td align=left class=td_background_tag width=16><img title='Name des Mitar
 echo "</tr>";
 echo "<tr>";
 echo "<td align=left class=td_background_tag>Start - Datum</td>";
-echo "<td align=left class=td_background_tag ><input type='text' name='_b' value='".@date("d.m.Y",$_user->_BeginnDerZeitrechnung)."' size='10'> (Beginn der Zeitrechnung)</td>";
+echo "<td align=left class=td_background_tag ><input type='text' name='_b' value='".@date("d.m.Y",
+        $_user->_BeginnDerZeitrechnung)."' size='10'> (Beginn der Zeitrechnung)</td>";
 echo "<td align=left class=td_background_tag width=16><img title='Einstellungsdatum, es wird nur jeder 1. des Monats unterst&uuml;tzt.' src='images/icons/information.png' border=0></td>";
 echo "</tr>";
 //------------------------------------------------------------------------------------
@@ -28,12 +29,12 @@ echo "</tr>";
 //------------------------------------------------------------------------------------
 echo "<tr>";
 echo "<td align=left class=td_background_tag>Zeitberechnungsmodell</td>";
-echo "<td align=left class=td_background_tag ><select name='_m' size='1'><option value='0'";   
-echo ($_user->_modell == 0) ? " selected " : "" ;
+echo "<td align=left class=td_background_tag ><select name='_m' size='1'><option value='0'";
+echo ($_user->_modell == 0) ? " selected " : "";
 echo ">kumulierend</option><option value='1'";
-echo ($_user->_modell == 1) ? " selected " : "" ;
+echo ($_user->_modell == 1) ? " selected " : "";
 echo ">J&auml;hrlich</option><option value='2'";
-echo ($_user->_modell == 2) ?  " selected " : "" ;
+echo ($_user->_modell == 2) ? " selected " : "";
 echo ">Monatlich</option>	</select></td>
 ";
 echo "<td align=left class=td_background_tag width=16><img title='&Uuml;berstungen - Zeitberechnung kumuliert, jeden Monat oder jedes Jahr zur&uuml;cksetzend.' src='images/icons/information.png' border=0></td>";
@@ -79,13 +80,12 @@ echo "<tr>";
 echo "<td align=left class=td_background_tag valign='top'>Arbeitstage</td>";
 echo "<td align=left class=td_background_tag >";
 echo "<table width='100%' border='0' cellpadding='0' cellspacing='0'>";
-for($i = 0; $i <= 6; $i++)
-{
-	echo "<tr><td width='30'>";
-	echo $_monat->get_wochentage($i);
-	echo "</td><td>";
-	echo "<input class='smallinput' type='text' name='wotag".$i."' value='".$_user->_arbeitstage[$i]."' size='4'>";
-	echo "</td></tr>";
+for ($i = 0; $i <= 6; $i++) {
+    echo "<tr><td width='30'>";
+    echo $_monat->get_wochentage($i);
+    echo "</td><td>";
+    echo "<input class='smallinput' type='text' name='wotag".$i."' value='".$_user->_arbeitstage[$i]."' size='4'>";
+    echo "</td></tr>";
 }
 echo "</table>";
 echo "</td>";
@@ -99,29 +99,25 @@ echo "<tr>";
 echo "<td align=left class=td_background_tag valign='top'>Feiertage:</td>";
 echo "<td align=left class=td_background_tag >";
 echo "<table width='100%' border='0' cellpadding='0' cellspacing='0'>";
-$i          = 0;
+$i = 0;
 $_feiertage = new time_feiertage($_time->_jahr, $_settings->_array[12][1], $_user->_feiertage);
-$FT         = $_feiertage->getFeiertageUserEdit();
-foreach($FT as $zeile)
-{
-	echo "\n<tr><td width='150'>". $zeile['_bez'];
-	echo "</td><td width='100'>";
-	echo date("d.m.Y",$zeile['_tag']);
-	echo "</td><td>";
-	$wahl = $zeile['_wahl'];
-	$wahl = trim($wahl);
-	$wahl = str_replace("/r","", $wahl);
-	$wahl = str_replace("/n","", $wahl);
-	if($wahl == "1")
-	{
-		echo '<input name="feiertag'.$zeile['_id'].'" type="checkbox" checked />';
-	}
-	else
-	{
-		echo '<input name="feiertag'.$zeile['_id'].'" type="checkbox" />';
-	}
-	echo "</td></tr>\n";
-	$i++;
+$FT = $_feiertage->getFeiertageUserEdit();
+foreach ($FT as $zeile) {
+    echo "\n<tr><td width='150'>".$zeile['_bez'];
+    echo "</td><td width='100'>";
+    echo date("d.m.Y", $zeile['_tag']);
+    echo "</td><td>";
+    $wahl = $zeile['_wahl'];
+    $wahl = trim($wahl);
+    $wahl = str_replace("/r", "", $wahl);
+    $wahl = str_replace("/n", "", $wahl);
+    if ($wahl == "1") {
+        echo '<input name="feiertag'.$zeile['_id'].'" type="checkbox" checked />';
+    } else {
+        echo '<input name="feiertag'.$zeile['_id'].'" type="checkbox" />';
+    }
+    echo "</td></tr>\n";
+    $i++;
 }
 echo "<input type='hidden' name='anzahlFT' value='$i' >";
 echo "</table>";
@@ -146,24 +142,29 @@ Beispiel: 19.5 - 24 Uhr zu 150%
 echo "<td align=left class=td_background_tag >";
 
 echo "<table width='100%' border='0' cellpadding='0' cellspacing='0'>";
-for($i = 0; $i <= 6; $i++)
-{
-	echo "<tr><td width='50'>";
-	echo $_monat->get_wochentage($i);
-	if(!$_user->_zuschlag[$i][0]) $_user->_zuschlag[$i][0] = 0;
-	if(!$_user->_zuschlag[$i][1]) $_user->_zuschlag[$i][1] = 0;
-	if(!$_user->_zuschlag[$i][2]) $_user->_zuschlag[$i][2] = 0;
-	echo " : </td>";
-	echo "<td>";
-	echo "Zeit : <input class='smallinput' type='text' name='zutagvon".$i."' value='".$_user->_zuschlag[$i][0]."' size='3'>";
-	echo "</td>";
-	echo "<td>";
-	echo " - <input class='smallinput' type='text' name='zutagbis".$i."' value='".$_user->_zuschlag[$i][1]."' size='3'>";
-	echo "</td>";
-	echo "<td>";
-	echo ", Zuschlag in % <input class='smallinput' type='text' name='zutagporzent".$i."' value='".$_user->_zuschlag[$i][2]."' size='3'>";
-	echo "</td>";
-	echo "</tr>";
+for ($i = 0; $i <= 6; $i++) {
+    echo "<tr><td width='50'>";
+    echo $_monat->get_wochentage($i);
+    if (!$_user->_zuschlag[$i][0]) {
+        $_user->_zuschlag[$i][0] = 0;
+    }
+    if (!$_user->_zuschlag[$i][1]) {
+        $_user->_zuschlag[$i][1] = 0;
+    }
+    if (!$_user->_zuschlag[$i][2]) {
+        $_user->_zuschlag[$i][2] = 0;
+    }
+    echo " : </td>";
+    echo "<td>";
+    echo "Zeit : <input class='smallinput' type='text' name='zutagvon".$i."' value='".$_user->_zuschlag[$i][0]."' size='3'>";
+    echo "</td>";
+    echo "<td>";
+    echo " - <input class='smallinput' type='text' name='zutagbis".$i."' value='".$_user->_zuschlag[$i][1]."' size='3'>";
+    echo "</td>";
+    echo "<td>";
+    echo ", Zuschlag in % <input class='smallinput' type='text' name='zutagporzent".$i."' value='".$_user->_zuschlag[$i][2]."' size='3'>";
+    echo "</td>";
+    echo "</tr>";
 }
 echo "</table>";
 echo "</td>";

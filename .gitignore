@@ -1,5 +1,6 @@
 #PHP - Storm
 .idea
+*.iml
 
 #Codelobster - IDE
 *.clpprj
