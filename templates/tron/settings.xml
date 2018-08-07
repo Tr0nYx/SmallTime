@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<document>
+    <bootstrap>true</bootstrap>
+    <bootstrap4>true</bootstrap4>
+    <jquery>true</jquery>
+    <modal>true</modal>
+    <portal_user>index.php</portal_user>
+    <portal_admin>index.php</portal_admin>
+</document>

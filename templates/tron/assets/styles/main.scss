@@ -1,0 +1,594 @@
+@import "settings";
+
+a:link {
+  color: #202020;
+  text-decoration: none;
+  border: none;
+}
+
+a:visited {
+  color: #202020;
+  text-decoration: none;
+  border: none;
+}
+
+a:active {
+  color: #202020;
+  text-decoration: none;
+  border: none;
+}
+
+a:hover {
+  color: #202020;
+  text-decoration: none;
+  border: none;
+}
+
+#zip {
+  border: none;
+  width: 86px;
+  height: inherit;
+}
+
+#div_plugin {
+  float: right;
+  margin-top: 10px;
+}
+
+.pluginselect {
+}
+
+#div_header {
+  @include unitize-width(1000);
+  @include unitize-height(122);
+  background-image: url(./../images/smalltime.jpg);
+  text-align: right;
+}
+
+#div_user02 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#div_user03 {
+  max-width: 100%;
+}
+
+#div_user04 {
+}
+
+.info {
+  display: none;
+}
+
+#meineid div input:hover + .info {
+  display: block;
+}
+
+.background {
+  background-color: $gray-400;
+}
+
+.div_background {
+  background-color: #a4a4a4;
+}
+
+.minus {
+  color: #b00000;
+}
+
+.timefehlt {
+  color: #013fb1;
+}
+
+.copyright,
+.copyright a {
+  @include unitize(font-size, 11);
+  @include unitize(line-height, 16);
+  text-decoration: none;
+  color: $gray-600;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  margin: 0 auto;
+  margin-top: 0;
+  width: 100%;
+}
+
+#quicktime {
+  max-width: 100%;
+}
+
+/* -----------------------------------------------------------------------------------------------------------*/
+/* INFOBOX                                                                                                           */
+/* -----------------------------------------------------------------------------------------------------------*/
+
+#InfoBox {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 150px;
+  background-color: $gray-300;
+  border: 1px solid #555555;
+  -moz-box-shadow: 1px 1px 1px 0 #606060;
+  -webkit-box-shadow: 1px 1px 1px 0 #606060;
+  box-shadow: 1px 1px 1px 0 #606060;
+}
+
+#BoxInnen {
+  @include unitize-padding(10);
+}
+
+#BoxInhalte {
+  @include unitize(font-size,12);
+  text-decoration: none;
+  color: $gray-800;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: 130%;
+}
+
+/* -----------------------------------------------------------------------------------------------------------*/
+/* Hover                                                                                                      */
+/* -----------------------------------------------------------------------------------------------------------*/
+.time:hover {
+  background-color: #ffb7b7;
+  border-color: #ff8e8e;
+  color: #b70000;
+
+}
+
+.time {
+  @include unitize-padding(4);
+}
+
+/* -----------------------------------------------------------------------------------------------------------*/
+/* Navigation  Menue im DIV 01                                                                                */
+/* -----------------------------------------------------------------------------------------------------------*/
+
+.mainmenu {
+  margin: 0;
+  position: relative;
+  top: -15px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.mainmenu ul {
+  display: inline-block;
+  display: inline;
+  margin-bottom: 0;
+  margin-left: 41px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  zoom: 1;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.mainmenu ul > li {
+  display: inline;
+}
+
+.mainmenu ul > li > a,
+.mainmenu ul > li > span {
+  float: left;
+  padding: 3px 6px;
+  line-height: 17px;
+  text-decoration: none;
+  background-color: transparent;
+  border: 0 solid #dddddd;
+  border-left-width: 0;
+}
+
+.mainmenu ul > li > a:hover,
+.mainmenu ul > li > a:focus,
+.mainmenu ul > .active > a,
+.mainmenu ul > .active > span {
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.mainmenu ul > .active > a,
+.mainmenu ul > .active > span {
+  color: #999999;
+  cursor: default;
+}
+
+.mainmenu ul > .disabled > span,
+.mainmenu ul > .disabled > a,
+.mainmenu ul > .disabled > a:hover,
+.mainmenu ul > .disabled > a:focus {
+  color: #999999;
+  cursor: default;
+  background-color: transparent;
+}
+
+.mainmenu ul > li:first-child > a,
+.mainmenu ul > li:first-child > span {
+  border-left-width: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+}
+
+.mainmenu ul > li:last-child > a,
+.mainmenu ul > li:last-child > span {
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+}
+
+.adminmenu a {
+  @include unitize-padding(15, 5, 5, 10);
+}
+
+.jahresmenu a {
+  @include unitize-padding(15, 15, 5, 21);
+}
+
+#Liste {
+  background-image: url(./../../../images/icons/report_user.png);
+  background-repeat: no-repeat;
+  background-position: 15px 2px;
+}
+
+#Jahr {
+  background-image: url(./../../../images/icons/table_multiple.png);
+  background-repeat: no-repeat;
+  background-position: 15px 2px;
+}
+
+#PDF {
+  background-image: url(./../../../images/icons/page_white_acrobat.png);
+  background-repeat: no-repeat;
+  background-position: 15px 2px;
+}
+
+#Drucken {
+  background-image: url(./../../../images/icons/printer.png);
+  background-repeat: no-repeat;
+  background-position: 27px 2px;
+}
+
+#Home {
+  background-image: url(./../../../images/icons/house.png);
+  background-repeat: no-repeat;
+  background-position: 22px 2px;
+}
+
+#Mitarbeiter {
+  background-image: url(./../../../images/icons/user_add.png);
+  background-repeat: no-repeat;
+  background-position: 29px 2px;
+}
+
+#Gruppen {
+  background-image: url(./../../../images/icons/group_go.png);
+  background-repeat: no-repeat;
+  background-position: 27px 2px;
+}
+
+#Design {
+  background-image: url(./../../../images/icons/color_wheel.png);
+  background-repeat: no-repeat;
+  background-position: 23px 2px;
+}
+
+#Settings {
+  background-image: url(./../../../images/icons/cog_edit.png);
+  background-repeat: no-repeat;
+  background-position: 27px 2px;
+}
+
+#Feiertag {
+  background-image: url(./../../../images/icons/calendar_view_day.png);
+  background-repeat: no-repeat;
+  background-position: 35px 2px;
+}
+
+#Import {
+  background-image: url(./../../../images/icons/table_go.png);
+  background-repeat: no-repeat;
+  background-position: 38px 2px;
+}
+
+#Status {
+  background-image: url(./../../../images/icons/bug.png);
+  background-repeat: no-repeat;
+  background-position: 23px 2px;
+}
+
+#Codes {
+  background-image: url(./../../../images/icons/images.png);
+  background-repeat: no-repeat;
+  background-position: 32px 2px;
+}
+
+#Logout {
+  background-image: url(./../../../images/icons/key_delete.png);
+  background-repeat: no-repeat;
+  background-position: 22px 2px;
+}
+
+#password {
+  background-image: url(./../../../images/icons/key_go.png);
+  background-repeat: no-repeat;
+  background-position: 29px 2px;
+}
+
+#pdfgenerate {
+  background-image: url(./../../../images/icons/page_white_acrobat.png);
+  background-repeat: no-repeat;
+  background-position: 17px 2px;
+}
+
+#logout_button {
+  width: 255px;
+  height: auto;
+}
+
+/* -----------------------------------------------------------------------------------------------------------*/
+/* Jahres - Navigation und Menue */
+/* -----------------------------------------------------------------------------------------------------------*/
+
+#Monat {
+  background-image: url(./../../../images/icons/calendar_view_month.png);
+  background-repeat: no-repeat;
+  background-position: 25px 2px;
+}
+
+#MonatAktiv {
+  background-image: url(./../../../images/icons/calendar_edit.png);
+  background-repeat: no-repeat;
+  background-position: 25px 2px;
+}
+
+.td_background_menue {
+  @include unitize-padding(8);
+  background-color: $gray-400;
+  color: #396026;
+  border: 1px solid;
+  border-color: #97cb7e;
+  text-shadow: $close-text-shadow;
+}
+
+/* -----------------------------------------------------------------------------------------------------------*/
+/* Tabellen - Anzeigen */
+/* -----------------------------------------------------------------------------------------------------------*/
+/* Standard*/
+.td_background_tag,
+.td_background_tag50,
+.td_background_heute,
+.td_background_info,
+.td_background_5,
+.td_background_top,
+.td_background_wochenende,
+.td_background_feiertag,
+.td_background {
+  @include unitize-padding(8);
+  text-shadow: $close-text-shadow;
+}
+
+.td_background {
+  background-color: $gray-300;
+  color: $gray-700;
+}
+
+/* Überschriften */
+.td_background_top {
+  background-color: $gray-400;
+  color: $blue;
+  border: 1px solid;
+  border-color: #95ade8;
+}
+
+
+/* Normal,Arbeitstag (2)*/
+.td_background_tag {
+  @include background($gray-100, $gray-200);
+}
+
+.td_background_tag50 {
+  @include background($gray-200, $gray-400);
+}
+
+.td_background_tag img {
+  @include unitize(width,16);
+}
+
+/* Wochenende (3)*/
+.td_background_wochenende{
+  @include background($gray-400, $gray-500);
+}
+.td_background_feiertag {
+  @include background(lighten($red, 40%), lighten($red, 30%));
+}
+
+/* Heute */
+.td_background_heute {
+  @include background(lighten($yellow, 40%), lighten($yellow, 30%));
+  border: 1px solid $yellow;
+  color: #5f2625;
+}
+
+/* Wichtige zeilen (x)*/
+.td_background_info {
+  @include background(lighten($blue, 40%), lighten($blue, 30%));
+  border: 1px solid $blue;
+  color: #5f2625;
+}
+
+/*  Tabellenhintergrund kleine Monatsansicht */
+.td_background_5 {
+  border: 1px solid;
+  border-color: #d89696;
+  background-color: #6f6f6f;
+}
+
+/* -----------------------------------------------------------------------------------------------------------*/
+/* PDF und ZIP - Anzeige */
+/* -----------------------------------------------------------------------------------------------------------*/
+#divpdf {
+  width: 100%;
+  @include unitize-margin(0, 0, 5, 0);
+  position: relative;
+  border-left: 0 solid;
+  border-right: 0 solid;
+  border-bottom: 0 solid;
+  border-top: 0 solid;
+  float: left;
+  -webkit-border-radius: .15em;
+  border-radius: .15em;
+  @include unitize-padding(8, 0);
+  background-color: #dddddd;
+}
+
+#divpdf div {
+  width: 94px;
+  height: 100px;
+  @include unitize-margin(5);
+  @include unitize-padding(5);
+  position: relative;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  -webkit-border-radius: .3em;
+  border-radius: .3em;
+  @include background($gray-600, $gray-300);
+  float: left;
+}
+
+#divpdf div:hover {
+  width: 94px;
+  height: 100px;
+  margin: 5px;
+  padding: 5px;
+  position: relative;
+  background-color: #aaaaaa;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  @include background(#ff4848, #ffb9b9);
+  text-shadow: 0 /*{a-body-shadow-x}*/
+  1px /*{a-body-shadow-y}*/
+  0 /*{a-body-shadow-radius}*/
+  #ffffff /*{a-body-shadow-color}*/
+;
+  float: left;
+}
+
+/* -----------------------------------------------------------------------------------------------------------*/
+/* Jahres - Anzeige einfach für Admin und User */
+/* -----------------------------------------------------------------------------------------------------------*/
+#show_year {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  border: 0 solid;
+}
+
+#show_year div {
+  @include unitize-margin(5);
+  @include unitize-padding(5);
+  position: relative;
+  background-color: #a9a9a9;
+  border: 1px solid;
+  float: left;
+}
+
+/*-----------------------------------------------------------POP UP*/
+
+#wrapper {
+  color: #000000;
+  font-family: tahoma;
+  @include unitize(font-size,14);
+  margin: 0 auto;
+  width: 900px;
+  margin-top: 0;
+}
+
+#wrapper a {
+  @include unitize(font-size,15);
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.box {
+  @include unitize-padding(20);
+  background-color: #ffffff;
+  color: #2d2d2d;
+  height: 88%;
+  left: 100%;
+  position: fixed;
+  right: 30%;
+  top: 5%;
+  width: 900px;
+  z-index: 101;
+  border: 1px solid #888888;
+  -moz-border-radius: 0;
+  border-radius: 1px;
+  overflow: auto;
+  margin-left: -450px;
+}
+
+.overlay {
+  background: #000000;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  opacity: 0.5;
+}
+
+a.boxclose {
+  @include size(16);
+  background: url("./../../../images/icons/cancel.png") repeat scroll left top transparent;
+  cursor: pointer;
+  float: right;
+  left: 0;
+  position: relative;
+  top: 0;
+}
+
+/* K-IT tweaks */
+
+.timetable img {
+  @include unitize(min-width, 16px);
+  margin-right: 2px;
+}
+
+/* Responsive Tweaks */
+
+@media (max-width: 767px) {
+  .td_background_wochenende {
+    display: none;
+  }
+  .timetable {
+    font-size: 10px;
+  }
+}
+
+#mehrlogininfo {
+  width: 261px;
+  margin-left: 1px;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,51 @@
+@mixin background($top, $bottom) {
+	background: $top;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($top), to($bottom));
+	background-image: -webkit-linear-gradient($top, $bottom);
+	background-image: -moz-linear-gradient($top, $bottom);
+	background-image: -ms-linear-gradient($top, $bottom); /*For IE10*/
+	background-image: -o-linear-gradient($top, $bottom);
+	background-image: linear-gradient($top, $bottom);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$top', endColorstr='$bottom'); /*For IE7-8-9*/
+}
+
+@mixin unitize($property, $value, $baseValue: $remScaleFactor){
+	$pxValue: $value;
+	$remValue: ($value / $baseValue);
+	#{$property}: $pxValue + px;
+	#{$property}: $remValue + rem;
+}
+@mixin unitize-height($value, $baseValue: $remScaleFactor) {
+	@include unitize(height, $value, $baseValue);
+}
+
+@mixin unitize-width($value, $baseValue: $remScaleFactor) {
+	@include unitize(width, $value, $baseValue);
+}
+@mixin size($width, $height: $width) {
+	@include unitize-width($width);
+	@include unitize-height($height);
+}
+@mixin unitize-multiple($topValue, $rightValue: $topValue, $bottomValue: $topValue, $leftValue: $rightValue, $baseValue: $remScaleFactor, $property: padding) {
+	$pxTopValue: $topValue;
+	$emTopValue: ($topValue / $baseValue);
+
+	$pxRightValue: $rightValue;
+	$emRightValue: ($rightValue / $baseValue);
+
+	$pxBottomValue: $bottomValue;
+	$emBottomValue: ($bottomValue / $baseValue);
+
+	$pxLeftValue: $leftValue;
+	$emLeftValue: ($leftValue / $baseValue);
+
+	#{$property}: $pxTopValue + px $pxRightValue + px $pxBottomValue + px $pxLeftValue + px;
+	#{$property}: $emTopValue + rem $emRightValue + rem $emBottomValue + rem $emLeftValue + rem;
+}
+@mixin unitize-margin($topValue, $rightValue: $topValue, $bottomValue: $topValue, $leftValue: $rightValue, $baseValue: $remScaleFactor) {
+	@include unitize-multiple($topValue, $rightValue, $bottomValue, $leftValue, $baseValue, margin);
+}
+
+@mixin unitize-padding($topValue, $rightValue: $topValue, $bottomValue: $topValue, $leftValue: $rightValue, $baseValue: $remScaleFactor) {
+	@include unitize-multiple($topValue, $rightValue, $bottomValue, $leftValue, $baseValue, padding);
+}
