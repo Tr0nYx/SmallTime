@@ -18,17 +18,18 @@ module.exports = function (grunt) {
             },
             target: {
                 files: {
-                    'css/<%= pkg.name %>-<%= pkg.version %>.min.css': ['build/css/bootstrap.css', 'build/css/main.css']
+                    'css/<%= pkg.name %>-<%= pkg.version %>.min.css': ['build/css/bootstrap.css', 'build/css/mdbootstrap.css', 'build/css/main.css']
                 }
             }
         },
-        sass: {                              // Task
-            dist: {                            // Target
-                options: {                       // Target options
+        sass: {
+            dist: {
+                options: {
                     style: 'expanded'
                 },
                 files: {
                     'build/css/bootstrap.css': './bower_components/bootstrap/scss/bootstrap.scss',
+                    'build/css/mdbootstrap.css': './bower_components/MDBootstrap/scss/mdb.scss',
                     'build/css/main.css': './assets/styles/main.scss'
                 }
             }
@@ -46,13 +47,22 @@ module.exports = function (grunt) {
                 ],
                 dest: './build/js/<%= pkg.name %>.js'
             }
-        }
+        },
+		copy: {
+		  main: {
+			files: [
+			  // includes files within path
+			  {expand: true, cwd: './bower_components/MDBootstrap/font', src: ['**'], dest: './font'},
+			]
+		  }
+		}
     });
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 // Default task(s).
-    grunt.registerTask('default', ['sass','cssmin','concat','uglify']);
+    grunt.registerTask('default', ['copy','sass','cssmin','concat','uglify']);
 };

@@ -11,7 +11,7 @@
 if (strstr($_template->_bootstrap, 'true')) {
     $i = 1;
     $monate = explode(";", $_settings->_array[11][1]);
-    echo '	<ul class="nav nav-tabs jahresmenu">	';
+    echo '	<ul class="nav nav-tabs jahresmenu blue lighten-4">	';
     foreach ($monate as $_month) {
         $_timestamp = mktime(0, 0, 0, $i, 1, $_time->_jahr);
         $month = htmlspecialchars($_month);

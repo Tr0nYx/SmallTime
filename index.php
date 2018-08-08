@@ -54,15 +54,15 @@ $_start_time = $_start_time[1] + $_start_time[0];
 // F5 verhindern dass daten zwei mal gespeichert werden kann
 // ----------------------------------------------------------------------------
 //$_write = true;         // Daten werden dann  gespeichert
-$_now = isset($_GET['token']) ?: md5(uniqid());
+$_now = isset($_GET['token']) ? $_GET['token'] : md5(uniqid());
 $token = md5(uniqid('SmallTime'));
 //echo  $_SESSION['last'] . " - " . $_now ;
 //echo " < br > ";
 if (trim($_SESSION['last']) == trim($_now) and isset($_SESSION['last'])) {
-    echo "Speichern erlaubt";
+    //echo "Speichern erlaubt";
     $_write = true;
 } else {
-    echo "token sind identisch, speichern nicht erlaubt";
+    //echo "token sind identisch, speichern nicht erlaubt";
     $_write = false;
 }
 $_SESSION['last'] = $token;
@@ -557,7 +557,7 @@ if ($_SESSION['admin']) {
         $_time->_timestamp);
 }
 
-$_copyright = "<div class=copyright>";
+$_copyright = '<div class="copyright row">';
 //-----------------------------------------------------------------------------
 //Seitenladezeit
 //-----------------------------------------------------------------------------
@@ -568,7 +568,7 @@ $_zeitmessung = $_time_end - $_start_time;
 // ^^ Endzeit minus Startzeit = die Differenz der beiden Zeiten
 $_zeitmessung = substr($_zeitmessung, 0, 4);
 // ^^ Die Zeit wird auf X Kommastellen gekürzt
-$_copyright .= "<hr color=#DFDFDF size=1>Ladezeit der Seite: $_zeitmessung Sekunden.<br>";
+$_copyright .= "Ladezeit der Seite: $_zeitmessung Sekunden.<br>";
 // ----------------------------------------------------------------------------
 // copyright Text
 // ----------------------------------------------------------------------------

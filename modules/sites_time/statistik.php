@@ -9,7 +9,7 @@
  *******************************************************************************/
 echo "<table width=100% border=0 cellpadding=3 cellspacing=1>";
 echo "	<tr>";
-echo "		<td class=td_background_top width=100 align=left colspan=2>Mitarbeiterdaten</td>";
+echo "		<th class=td_background_top width=100 align=left colspan=2>Mitarbeiterdaten</th>";
 echo "	</tr>";
 echo "	<tr>";
 echo "		<td class=td_background_tag width=100 align=left>Name</td>";

@@ -111,7 +111,4 @@ foreach ($_monat->get_calc_absenz() as $werte) {
 }
 echo "</table>";
 ?>
-</br>
-<link rel="stylesheet" media="screen" href="./css/calendar_js.css" type="text/css"/>
-<script type="text/javascript" src="./js/calendar_js.js"></script>
-<div id="calendar"></div> 
+<div id="calendar" class="pt-2"></div>

@@ -12,6 +12,7 @@
 <html lang="de">
 <head>
     <?php
+    $_template->set_modulpfad('modules');
     include($_template->get_templatepfad().'/defaultheader.php');
     echo "\n";
     $package = json_decode(file_get_contents($_template->get_templatepfad().'/package.json'));
@@ -40,9 +41,9 @@ if ($_modal == false) {
         </div>
     </div>
     <!--Ende DIV für die InfoBox 	-->
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="col-xl-4 col-12">
                 <img style="width:100%" src="<?php echo $_template->get_templatepfad() ?>images/smalltime.jpg">
             </div>
         </div>
@@ -81,10 +82,12 @@ if ($_modal == false) {
                 </div>
             </div>
         </div>
-        <div class="row">
+    </div>
+    <footer class="page-footer font-small blue pt-4">
+        <div class="container-fluid text-center text-md-left">
             <?php echo $_copyright; ?>
         </div>
-    </div>
+    </footer>
     <div id="mainModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

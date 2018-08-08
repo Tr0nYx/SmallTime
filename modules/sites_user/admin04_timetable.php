@@ -131,12 +131,12 @@ if (strstr($_template->_modal, 'true')) {
             // Falls eine Absenz vorhanden ist, Infos anzeigen
             //-------------------------------------------------------------------------
             if ($_monat->_MonatsArray[$z][14] <> "") {
-                echo "\n<div class='table-responsive'><table class='table' border='0' cellpadding='0' cellspacing='0' width='100%'>
+                echo "\n<table border='0' cellpadding='0' cellspacing='0' width='100%'>
                         <tr>
                         <td>".trim($_monat->_MonatsArray[$z][14]).":".trim($_monat->_MonatsArray[$z][15])."</td>
                         <td width='16'><img title='".$_monat->_MonatsArray[$z][32]."' src='images/icons/information.png' border=0></td>
                         </tr>
-                        </table></div>\n";
+                        </table>\n";
             }
             //-------------------------------------------------------------------------
             echo " </td>\n";

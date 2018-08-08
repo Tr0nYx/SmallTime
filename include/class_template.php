@@ -120,7 +120,7 @@ class time_template
             //ausgewähltes Design vom Cookie laden
             $this->_templatepfad = "./templates/".$_COOKIE["designname"]."/";
         } else {
-            $this->_templatepfad = "./templates/tron/";
+            $this->_templatepfad = "./templates/smalltime/";
         }
         //index.php Template laden
         $this->_startseite = $_start;
@@ -190,12 +190,38 @@ class time_template
         $this->_template = $this->_templatepfad.$this->_startseite;
     }
 
+    function set_modulpfad($pfad)
+    {
+        $this->_modulpfad = $this->_templatepfad.$pfad."/";
+    }
+
     /**
      * @return string
      */
     function get_templatepfad()
     {
         return $this->_templatepfad;
+    }
+
+    /**
+     * @return string
+     */
+    function get_modulepfad($force = false)
+    {
+        if (is_dir($this->_modulpfad) && $force == false)
+            return $this->_modulpfad;
+        return "modules/";
+    }
+
+    function getTemplateFile($template)
+    {
+        if (is_file($this->get_modulepfad().$template))
+            return $this->get_modulepfad().$template;
+        if (is_file($this->get_modulepfad(true).$template))
+            return $this->get_modulepfad(true).$template;
+        if (is_file('plugins/'.$template))
+            return 'plugins/'.$template;
+        return 'modules/'.$template;
     }
 
     /**
@@ -220,7 +246,7 @@ class time_template
      */
     function get_user01()
     {
-        return $this->_modulpfad.$this->_user01;
+        return $this->getTemplateFile($this->_user01);
     }
 
     /**
@@ -228,7 +254,7 @@ class time_template
      */
     function get_user02()
     {
-        return $this->_modulpfad.$this->_user02;
+        return $this->getTemplateFile($this->_user02);
     }
 
     /**
@@ -236,7 +262,7 @@ class time_template
      */
     function get_user03()
     {
-        return $this->_modulpfad.$this->_user03;
+        return $this->getTemplateFile($this->_user03);
     }
 
     /**
@@ -244,7 +270,7 @@ class time_template
      */
     function get_user04()
     {
-        return $this->_modulpfad.$this->_user04;
+        return $this->getTemplateFile($this->_user04);
     }
 
     /**

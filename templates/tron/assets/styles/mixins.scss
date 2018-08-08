@@ -15,6 +15,14 @@
 	#{$property}: $pxValue + px;
 	#{$property}: $remValue + rem;
 }
+@mixin background-position($leftValue, $topValue, $baseValue: $remScaleFactor) {
+	$leftpxValue: $leftValue;
+	$leftremValue: ($leftValue / $baseValue);
+	$toppxValue: $topValue;
+	$topremValue: ($topValue / $baseValue);
+	background-position: $leftpxValue + px $toppxValue + px;
+	background-position: $leftremValue + rem $topremValue + rem;
+}
 @mixin unitize-height($value, $baseValue: $remScaleFactor) {
 	@include unitize(height, $value, $baseValue);
 }

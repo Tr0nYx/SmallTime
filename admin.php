@@ -687,7 +687,7 @@ if (@$_SESSION['admin']) {
         $_user->_Ferienguthaben_uebertrag, $_user->_Ferien_pro_Jahr, $_user->_Vorholzeit_pro_Jahr, $_user->_modell,
         $_time->_timestamp);
 }
-$_copyright = '<div class="copyright">';
+$_copyright = '<div class="copyright row"><div class="col-4">';
 //-----------------------------------------------------------------------------
 //Seitenladezeit
 //-----------------------------------------------------------------------------
@@ -698,7 +698,7 @@ $_zeitmessung = $_time_end - $_start_time;
 // ^^ Endzeit minus Startzeit = die Differenz der beiden Zeiten
 $_zeitmessung = substr($_zeitmessung, 0, 4);
 // ^^ Die Zeit wird auf X Kommastellen gekürzt
-$_copyright .= '<hr color="#DFDFDF" size="1">Ladezeit der Seite: '.$_zeitmessung.' Sekunden.<br>';
+$_copyright .= 'Ladezeit der Seite: '.$_zeitmessung.' Sekunden.<br>';
 // ----------------------------------------------------------------------------
 // copyright Text
 // ----------------------------------------------------------------------------
@@ -711,13 +711,14 @@ if ($_mem_usage > 19.9) {
     $_seite = explode('?', $_SERVER['HTTP_REFERER']);
     $_debug->insert_line("Memory Fehler ;".date('d.m.Y', time())."; File:  admin.php?".$_seite[1]."; RAM:".$_mem_usage);
 }
+$_copyright .=  "</div><div class='col-4'>";
 foreach ($_arr as $_zeile) {
     $_tmp = str_replace("##ver##", $_ver[0], $_zeile);
     $_tmp = str_replace("##phpver##", phpversion(), $_tmp);
     $_tmp = str_replace("##memory##", $_mem_usage, $_tmp);
     $_copyright .= $_tmp;
 }
-$_copyright .= "</div>";
+$_copyright .= "</div></div>";
 // ----------------------------------------------------------------------------
 // Viewer - Anzeige der Seite
 // ----------------------------------------------------------------------------

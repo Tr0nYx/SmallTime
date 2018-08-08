@@ -9,7 +9,7 @@
  *******************************************************************************/
 if (strstr($_template->_bootstrap, 'true')) {
     ?>
-    <ul class="nav nav-tabs adminmenu">
+    <ul class="nav nav-tabs adminmenu red accent-1">
         <?php if ($_settings->_array[13][1]) { ?>
             <li class="nav-item<?php echo $_action == "anwesend" ? ' active' : ''; ?>"><a
                         class="nav-link<?php echo $_action == "anwesend" ? ' active' : ''; ?>" id="Liste"

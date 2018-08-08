@@ -110,7 +110,7 @@ if (!@$show_user) {
     echo "<div class='table-responsive'>";
     echo "<table class='table' border=0 cellpadding=3 cellspacing=1>";
     echo "<tr>";
-    echo "<td class='td_background_top' align=left colspan=2>Mitarbeiterdaten</td>";
+    echo "<th class='td_background_top' align=left colspan=2>Mitarbeiterdaten</th>";
     echo "</tr>";
     echo "<tr>";
     echo "<td class=td_background_tag align=left>Name</td>";
