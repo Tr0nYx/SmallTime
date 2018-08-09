@@ -6,8 +6,12 @@ module.exports = function (grunt) {
             options: {
                 banner: '/**\n * <%= pkg.name %>\n * Date: <%= grunt.template.today("yyyy-mm-dd H:MM:s") %>\n * Version: <%= pkg.version %>\n */'
             },
+            libs: {
+                src: 'build/js/libs-<%= pkg.version %>.js',
+                dest: 'js/libs-<%= pkg.version %>.min.js'
+            },
             build: {
-                src: 'build/js/<%= pkg.name %>.js',
+                src: 'build/js/<%= pkg.name %>-<%= pkg.version %>.js',
                 dest: 'js/<%= pkg.name %>-<%= pkg.version %>.min.js'
             }
         },
@@ -39,13 +43,19 @@ module.exports = function (grunt) {
                 separator: ';\n',
                 stripBanners: true
             },
-            core: {
+            libs: {
                 src: [
                     './bower_components/jquery/dist/jquery.js',
-                    './bower_components/bootstrap/dist/js/bootstrap.js',
+                    './bower_components/bootstrap/dist/js/bootstrap.js'
+                ],
+                dest: './build/js/libs-<%= pkg.version %>.js'
+            },
+            core: {
+                src: [
+                    './bower_components/MDBootstrap/js/mdb.js',
                     './assets/js/*.js'
                 ],
-                dest: './build/js/<%= pkg.name %>.js'
+                dest: './build/js/<%= pkg.name %>-<%= pkg.version %>.js'
             }
         },
 		copy: {

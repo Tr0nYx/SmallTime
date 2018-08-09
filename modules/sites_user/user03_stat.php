@@ -6,7 +6,6 @@
  * Copyright (c), IT-Master GmbH, All rights reserved
  *******************************************************************************/
 echo "<div class=\"container\">";
-echo "<div class=\"row\">";
 //-----------------------------------------------------------------------------
 // Quick Time - schnelle Zeiterfassung
 //-----------------------------------------------------------------------------
@@ -22,7 +21,6 @@ echo "<div class=\"col-xs-6\">";
 echo "<form action='?action=logout' method='post' target='_self'>";
 echo "<input id='logout_button' src='./".$_template->get_templatepfad()."images/logout.jpg' type='image' name='logout' value='Logout' >";
 echo "</form>";
-echo "</div>";
 echo "</div>";
 echo "</div>";
 //-----------------------------------------------------------------------------

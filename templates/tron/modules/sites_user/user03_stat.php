@@ -11,8 +11,8 @@ echo "<div class=\"row\">";
 // Quick Time - schnelle Zeiterfassung
 //-----------------------------------------------------------------------------
 echo "<div class=\"col-xs-6\">";
-echo "<a title='Quick Time erfassung' href='?action=quick_time&timestamp=".$_time->_timestamp."'>";
-echo "<img id='quicktime' src='./".$_template->get_templatepfad()."images/quicktime.jpg' border=0>";
+echo "<a class='btn btn-outline-success waves-effect hoverable' title='Quick Time erfassung' href='?action=quick_time&timestamp=".$_time->_timestamp."'>";
+echo "Schnell stempeln";
 echo "</a>";
 echo "</div>";
 //-----------------------------------------------------------------------------
@@ -20,7 +20,7 @@ echo "</div>";
 //-----------------------------------------------------------------------------
 echo "<div class=\"col-xs-6\">";
 echo "<form action='?action=logout' method='post' target='_self'>";
-echo "<input id='logout_button' src='./".$_template->get_templatepfad()."images/logout.jpg' type='image' name='logout' value='Logout' >";
+echo "<button class='btn btn-outline-danger waves-effect' name='logout' type='submit' value='Logout'>Logout</button>";
 echo "</form>";
 echo "</div>";
 echo "</div>";

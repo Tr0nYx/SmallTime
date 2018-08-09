@@ -17,11 +17,12 @@
     echo "\n";
     $package = json_decode(file_get_contents($_template->get_templatepfad().'/package.json'));
     $css = 'css/' . $package->name . '-' . $package->version . '.min.css';
+    $libsjs = 'js/libs-' . $package->version . '.min.js';
     $js = 'js/' . $package->name . '-' . $package->version . '.min.js';
     ?>
     <link rel="stylesheet" type="text/css" media="screen"
           href="<?php echo $_template->get_templatepfad() . $css ?>" >
-    <script src="<?php echo $_template->get_templatepfad() . $js ?>"></script>
+    <script src="<?php echo $_template->get_templatepfad() . $libsjs ?>"></script>
 </head>
 <?php //if($_modal == false)
 if ($_modal == false) {
@@ -108,6 +109,7 @@ if ($_modal == false) {
             </div>
         </div>
     </div>
+    <script src="<?php echo $_template->get_templatepfad() . $js ?>"></script>
     </body>
     <?php
 } elseif ($_modal == true) {

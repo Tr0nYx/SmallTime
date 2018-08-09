@@ -531,10 +531,10 @@ function setLoginForm()
         $_template->_user03 = "sites_login/login_einzel_03.php";
         $_template->_user04 = "sites_login/login_einzel_04.php";
     } else {
-        $_template->_user01 = "sites_time/null.php";
-        $_template->_user02 = "sites_login/login_mehr_02.php";
-        $_template->_user03 = "sites_login/login_mehr_03.php";
-        $_template->_user04 = "sites_login/login_mehr_04.php";
+        $_template->set_user01("sites_time/null.php");
+        $_template->set_user02("sites_login/login_mehr_02.php");
+        $_template->set_user03("sites_login/login_mehr_03.php");
+        $_template->set_user04("sites_login/login_mehr_04.php");
     }
 }
 

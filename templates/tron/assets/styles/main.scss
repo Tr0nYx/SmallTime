@@ -1,41 +1,21 @@
 @import "settings";
 @import "calendar";
-a:link {
-  color: #202020;
-  text-decoration: none;
-  border: none;
-}
-
-a:visited {
-  color: #202020;
-  text-decoration: none;
-  border: none;
-}
-
-a:active {
-  color: #202020;
-  text-decoration: none;
-  border: none;
-}
-
+a:link,
+a:visited,
+a:active,
 a:hover {
-  color: #202020;
-  text-decoration: none;
-  border: none;
+  @extend %defaultahref;
 }
 
 #zip {
-  border: none;
-  width: 86px;
+  @extend %noborder;
+  @include unitize-width(86);
   height: inherit;
 }
 
 #div_plugin {
-  float: right;
+  @extend %floatright;
   margin-top: 10px;
-}
-
-.pluginselect {
 }
 
 #div_header {
@@ -47,7 +27,7 @@ a:hover {
 
 #div_user02 {
   text-align: center;
-  width: 100%;
+  @extend %width100;
   margin-bottom: 10px;
 }
 
@@ -59,11 +39,11 @@ a:hover {
 }
 
 .info {
-  display: none;
+  @extend %hide;
 }
 
 #meineid div input:hover + .info {
-  display: block;
+  @extend %show;
 }
 
 .background {
@@ -75,23 +55,23 @@ a:hover {
 }
 
 .minus {
-  color: #b00000;
+  color: $red-darken-4;
 }
 
 .timefehlt {
-  color: #013fb1;
+  color: $blue-darken-4;
 }
 
 .copyright,
 .copyright a {
   @include unitize(font-size, 11);
   @include unitize(line-height, 16);
+  @extend %width100;
   text-decoration: none;
   color: $grey-darken-2;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   margin: 0 auto;
-  width: 100%;
 }
 
 #quicktime {
@@ -105,8 +85,8 @@ a:hover {
 
 #InfoBox {
   @include unitize-width(150);
+  @extend %positionabsolute;
   visibility: hidden;
-  position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
@@ -150,16 +130,15 @@ a:hover {
 
 .mainmenu {
   @extend %nomargin;
-  position: relative;
+  @extend %width100;
+  @extend %height100;
+  @extend %positionrelative;
   top: -15px;
   left: 0;
-  width: 100%;
-  height: 100%;
   background-color: transparent;
 }
 
 .mainmenu ul {
-  display: inline-block;
   display: inline;
   margin-bottom: 0;
   margin-left: 41px;
@@ -178,7 +157,7 @@ a:hover {
 
 .mainmenu ul > li > a,
 .mainmenu ul > li > span {
-  float: left;
+  @extend %floatleft;
   @include unitize-padding(3, 6);
   line-height: 17px;
   text-decoration: none;
@@ -231,131 +210,106 @@ a:hover {
   -moz-border-radius-bottomright: 0;
 }
 
-.adminmenu a,
-.jahresmenu a {
-  @include unitize-padding(15, 5, 5, 10);
-}
-
-#Liste {
+.nav-link#Liste:before {
   background-image: url(./../../../images/icons/report_user.png);
-  background-repeat: no-repeat;
-  background-position: 15px 2px;
+  @extend %menuicons;
 }
 
-#Jahr {
+.nav-link#Jahr:before {
   background-image: url(./../../../images/icons/table_multiple.png);
-  background-repeat: no-repeat;
-  background-position: 15px 2px;
+  @extend %menuicons;
 }
 
-#PDF {
+.nav-link#PDF:before {
   background-image: url(./../../../images/icons/page_white_acrobat.png);
-  background-repeat: no-repeat;
-  background-position: 15px 2px;
+  @extend %menuicons;
 }
 
-#Drucken {
+.nav-link#Drucken:before {
   background-image: url(./../../../images/icons/printer.png);
-  background-repeat: no-repeat;
-  background-position: 27px 2px;
+  @extend %menuicons;
 }
 
-#Home {
+.nav-link#Home:before {
   background-image: url(./../../../images/icons/house.png);
-  background-repeat: no-repeat;
-  background-position: 22px 2px;
+  @extend %menuicons;
 }
 
-#Mitarbeiter {
+.nav-link#Mitarbeiter:before {
   background-image: url(./../../../images/icons/user_add.png);
-  background-repeat: no-repeat;
-  background-position: 29px 2px;
+  @extend %menuicons;
 }
 
-#Gruppen {
+.nav-link#Gruppen:before {
   background-image: url(./../../../images/icons/group_go.png);
-  background-repeat: no-repeat;
-  background-position: 27px 2px;
+  @extend %menuicons;
 }
 
-#Design {
+.nav-link#Design:before {
   background-image: url(./../../../images/icons/color_wheel.png);
-  background-repeat: no-repeat;
-  background-position: 23px 2px;
+  @extend %menuicons;
 }
 
-#Settings {
+.nav-link#Settings:before {
   background-image: url(./../../../images/icons/cog_edit.png);
-  background-repeat: no-repeat;
-  background-position: 27px 2px;
+  @extend %menuicons;
 }
 
-#Feiertag {
+.nav-link#Feiertag:before {
   background-image: url(./../../../images/icons/calendar_view_day.png);
-  background-repeat: no-repeat;
-  background-position: 35px 2px;
+  @extend %menuicons;
 }
 
-#Import {
+.nav-link#Import:before {
   background-image: url(./../../../images/icons/table_go.png);
-  background-repeat: no-repeat;
-  background-position: 38px 2px;
+  @extend %menuicons;
 }
 
-#Status {
+.nav-link#Status:before {
   background-image: url(./../../../images/icons/bug.png);
-  background-repeat: no-repeat;
-  background-position: 23px 2px;
+  @extend %menuicons;
 }
 
-#Codes {
+.nav-link#Codes:before {
   background-image: url(./../../../images/icons/images.png);
-  background-repeat: no-repeat;
-  background-position: 32px 2px;
+  @extend %menuicons;
 }
 
-#Logout {
+.nav-link#Logout:before {
   background-image: url(./../../../images/icons/key_delete.png);
-  background-repeat: no-repeat;
-  background-position: 22px 2px;
+  @extend %menuicons;
 }
 
-#password {
+.nav-link#password:before {
   background-image: url(./../../../images/icons/key_go.png);
-  background-repeat: no-repeat;
-  @include background-position(29, 2);
+  @extend %menuicons;
 }
 
-#pdfgenerate {
+.nav-link#pdfgenerate:before {
   background-image: url(./../../../images/icons/page_white_acrobat.png);
-  background-repeat: no-repeat;
-  @include background-position(17, 2);
+  @extend %menuicons;
 }
 
-#logout_button {
-  @include unitize-width(255);
-  height: auto;
+.nav-link#logout_button {
+  @extend %width100;
+  @extend %autoheight;
 }
 
 /* -----------------------------------------------------------------------------------------------------------*/
 /* Jahres - Navigation und Menue */
 /* -----------------------------------------------------------------------------------------------------------*/
-#Monat,
-#MonatAktiv {
-  background-repeat: no-repeat;
-  @include background-position(15, 2);
-}
 
-#Monat {
+#Monat:before {
   background-image: url(./../../../images/icons/calendar_view_month.png);
+  @extend %menuicons;
 }
 
-#MonatAktiv {
+#MonatAktiv:before {
   background-image: url(./../../../images/icons/calendar_edit.png);
+  @extend %menuicons;
 }
 
 .td_background_menue {
-  @include unitize-padding(11, 8);
   background-color: $grey-lighten-3;
   color: #396026;
   border: 1px solid;
@@ -440,14 +394,11 @@ a:hover {
 /* PDF und ZIP - Anzeige */
 /* -----------------------------------------------------------------------------------------------------------*/
 #divpdf {
-  width: 100%;
+  @extend %width100;
   @include unitize-margin(0, 0, 5, 0);
-  position: relative;
-  border-left: 0 solid;
-  border-right: 0 solid;
-  border-bottom: 0 solid;
-  border-top: 0 solid;
-  float: left;
+  @extend %positionrelative;
+  @extend %noborder;
+  @extend %floatleft;
   -webkit-border-radius: .15em;
   border-radius: .15em;
   @include unitize-padding(8, 0);
@@ -455,19 +406,20 @@ a:hover {
 }
 
 #divpdf div {
-  width: 94px;
-  height: 100px;
+  @include unitize-width(94);
+  @include unitize-height(100);
   @include unitize-margin(5);
   @include unitize-padding(5);
-  position: relative;
+  @include background($gray-600, $gray-300);
+  @extend %floatleft;
+  @extend %positionrelative;
   border-left: 1px solid;
   border-right: 1px solid;
   border-bottom: 1px solid;
   border-top: 1px solid;
   -webkit-border-radius: .3em;
   border-radius: .3em;
-  @include background($gray-600, $gray-300);
-  float: left;
+
 }
 
 #divpdf div:hover {
@@ -476,7 +428,7 @@ a:hover {
   @include unitize-margin(5);
   @include unitize-padding(5);
   @include background(#ff4848, #ffb9b9);
-  position: relative;
+  @extend %positionrelative;
   background-color: #aaaaaa;
   border-left: 1px solid;
   border-right: 1px solid;
@@ -488,36 +440,37 @@ a:hover {
   0 /*{a-body-shadow-radius}*/
   #ffffff /*{a-body-shadow-color}*/
 ;
-  float: left;
+  @extend %floatleft;
 }
 
 /* -----------------------------------------------------------------------------------------------------------*/
 /* Jahres - Anzeige einfach für Admin und User */
 /* -----------------------------------------------------------------------------------------------------------*/
 #show_year {
-  width: 100%;
+  @extend %width100;
   @extend %nomarginnopadding;
-  position: relative;
-  border: 0 solid;
+  @extend %positionrelative;
+  @extend %noborder;
 }
 
 #show_year div {
   @include unitize-margin(5);
   @include unitize-padding(5);
-  position: relative;
+  @extend %positionrelative;
+  @extend %floatleft;
   background-color: #a9a9a9;
   border: 1px solid;
-  float: left;
+
 }
 
 /*-----------------------------------------------------------POP UP*/
 
 #wrapper {
+  @include unitize-width(900);
   color: #000000;
   font-family: tahoma;
   @include unitize(font-size, 14);
   margin: 0 auto;
-  width: 900px;
   margin-top: 0;
 }
 
@@ -530,6 +483,7 @@ a:hover {
 
 .box {
   @include unitize-padding(20);
+  @include unitize-width(900);
   background-color: #ffffff;
   color: #2d2d2d;
   height: 88%;
@@ -537,7 +491,6 @@ a:hover {
   position: fixed;
   right: 30%;
   top: 5%;
-  width: 900px;
   z-index: 101;
   border: 1px solid #888888;
   -moz-border-radius: 0;
@@ -559,11 +512,11 @@ a:hover {
 
 a.boxclose {
   @include size(16);
+  @extend %positionrelative;
+  @extend %floatright;
   background: url("./../../../images/icons/cancel.png") repeat scroll left top transparent;
   cursor: pointer;
-  float: right;
   left: 0;
-  position: relative;
   top: 0;
 }
 
@@ -578,10 +531,10 @@ a.boxclose {
 
 @media (max-width: 767px) {
   .td_background_wochenende {
-    display: none;
+    display:none;
   }
   .timetable {
-    font-size: 10px;
+    @include unitize(font-size,10);
   }
 }
 
@@ -597,5 +550,19 @@ a.boxclose {
   }
   span.btn {
     @include unitize-padding(5);
+  }
+}
+.adminmenu {
+  > .nav-item.active {
+    > .nav-link.active {
+      background-color: $red-darken-4;
+    }
+  }
+}
+.jahresmenu {
+  > .nav-item.active {
+    > .nav-link.active {
+      background-color: $blue-darken-4;
+    }
   }
 }

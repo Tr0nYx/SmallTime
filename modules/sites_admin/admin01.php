@@ -10,7 +10,7 @@
 // Settings des Templates mit Bootstrap
 if (strstr($_template->_bootstrap, 'true')) {
     ?>
-    <ul class="nav nav-tabs adminmenu red accent-1">
+    <ul class="nav nav-pills adminmenu red accent-1">
         <li class="nav-item<?php echo $_action == "anwesend" ? ' active' : ''; ?>">
             <a id="Home" class="nav-link"
                title="Home"
